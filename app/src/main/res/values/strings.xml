@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">RecuTP3</string>
+    <string name="login_title">Login</string>
+    <string name="user_list_title">User List</string>
+    <string name="user_detail_title">User Detail</string>
+    <string name="favourite_list_title">Favourites</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_submit">Log In</string>
 </resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navgraph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.recutp3.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_userListFragment"
+            app:destination="@id/userListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.example.recutp3.fragments.UserListFragment"
+        android:label="fragment_user_list"
+        tools:layout="@layout/fragment_user_list" >
+        <action
+            android:id="@+id/action_userListFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+        <action
+            android:id="@+id/action_userListFragment_to_favouriteListFragment"
+            app:destination="@id/favouriteListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.example.recutp3.fragments.UserDetailFragment"
+        android:label="fragment_user_detail"
+        tools:layout="@layout/fragment_user_detail" />
+    <fragment
+        android:id="@+id/favouriteListFragment"
+        android:name="com.example.recutp3.fragments.FavouriteListFragment"
+        android:label="fragment_favourite_list"
+        tools:layout="@layout/fragment_favourite_list" />
+</navigation>
