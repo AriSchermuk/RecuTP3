@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.navigation.findNavController
 import com.example.recutp3.R
 
 class LoginFragment : Fragment() {
-    lateinit var view1 : View
+    lateinit var view1: View
     lateinit var txtLoginEmail: EditText
     lateinit var txtLoginPassword: EditText
-    lateinit var btnLoginSubmit : Button
+    lateinit var btnLoginSubmit: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +34,10 @@ class LoginFragment : Fragment() {
         super.onStart()
 
         btnLoginSubmit.setOnClickListener {
-
+            if (!txtLoginEmail.text.isNullOrEmpty() && !txtLoginPassword.text.isNullOrEmpty()) {
+                val action = LoginFragmentDirections.actionLoginFragmentToUserListFragment()
+                view1.findNavController().navigate(action)
+            }
         }
     }
 }
