@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.navigation.findNavController
 import com.example.recutp3.R
+import com.example.recutp3.entities.User
 
 class UserListFragment : Fragment() {
     lateinit var view1: View
@@ -34,7 +35,7 @@ class UserListFragment : Fragment() {
             if (!txtUserId.text.isNullOrEmpty()) {
                 val userId = txtUserId.text.toString()
                 val action =
-                    UserListFragmentDirections.actionUserListFragmentToUserDetailFragment(userId)
+                    UserListFragmentDirections.actionUserListFragmentToUserDetailFragment(User(userId))
                 view1.findNavController().navigate(action)
             }
         }

@@ -26,7 +26,7 @@ class UserDetailFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val userId = UserDetailFragmentArgs.fromBundle(requireArguments()).userId
-        lblDescription.text = getString(R.string.userDetail_description, userId)
+        val user = UserDetailFragmentArgs.fromBundle(requireArguments()).user
+        lblDescription.text = getString(R.string.userDetail_description, user.userId)
     }
 }
