@@ -7,4 +7,8 @@
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="login_submit">Log In</string>
+    <string name="userList_title">User List</string>
+    <string name="userId_hint">User ID</string>
+    <string name="userDetail_button">See Detail</string>
+    <string name="userDetail_description">You are seeing the details of the user with ID: %s</string>
 </resources>
