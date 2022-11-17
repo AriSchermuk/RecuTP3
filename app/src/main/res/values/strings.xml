@@ -11,4 +11,7 @@
     <string name="userId_hint">User ID</string>
     <string name="userDetail_button">See Detail</string>
     <string name="userDetail_description">You are seeing the details of the user with ID: %s</string>
+    <string name="home_menu_option">Home</string>
+    <string name="favourites_menu_option">Favourites</string>
+    <string name="exit_menu_option">Exit</string>
 </resources>
