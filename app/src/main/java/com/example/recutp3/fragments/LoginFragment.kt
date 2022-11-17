@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.navigation.findNavController
 import com.example.recutp3.R
+import com.example.recutp3.session.LoggedUser
+import com.example.recutp3.session.LoggedUserSession
 
 class LoginFragment : Fragment() {
     lateinit var view1: View
@@ -17,8 +19,7 @@ class LoginFragment : Fragment() {
     lateinit var btnLoginSubmit: Button
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         view1 = inflater.inflate(R.layout.fragment_login, container, false)
@@ -34,10 +35,24 @@ class LoginFragment : Fragment() {
         super.onStart()
 
         btnLoginSubmit.setOnClickListener {
-            if (!txtLoginEmail.text.isNullOrEmpty() && !txtLoginPassword.text.isNullOrEmpty()) {
+            val loggedUser = getLoggedUser()
+            if (loggedUser != null) {
+                LoggedUserSession.loggedUser = loggedUser
                 val action = LoginFragmentDirections.actionLoginFragmentToUserListFragment()
                 view1.findNavController().navigate(action)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //Cuando vuelvo a login automaticamente cuanto como deslogueado
+        LoggedUserSession.loggedUser = null
+    }
+
+    private fun getLoggedUser(): LoggedUser? {
+        return if (!txtLoginEmail.text.isNullOrEmpty() && !txtLoginPassword.text.isNullOrEmpty()) LoggedUser(
+            "1", txtLoginEmail.text.toString()
+        ) else null
     }
 }
