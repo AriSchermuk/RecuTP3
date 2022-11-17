@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.recutp3.R
 
-class FavouriteListFragment : Fragment() {
+class FavoriteListFragment : Fragment() {
     lateinit var view1: View
 
     override fun onCreateView(
@@ -15,7 +15,7 @@ class FavouriteListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        view1 = inflater.inflate(R.layout.fragment_favourite_list, container, false)
+        view1 = inflater.inflate(R.layout.fragment_favorite_list, container, false)
         return view1
     }
 }

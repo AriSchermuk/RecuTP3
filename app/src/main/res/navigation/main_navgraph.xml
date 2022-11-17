@@ -33,8 +33,8 @@
             app:argType="com.example.recutp3.entities.User" />
     </fragment>
     <fragment
-        android:id="@+id/favouriteListFragment"
-        android:name="com.example.recutp3.fragments.FavouriteListFragment"
-        android:label="fragment_favourite_list"
-        tools:layout="@layout/fragment_favourite_list" />
+        android:id="@+id/favoriteListFragment"
+        android:name="com.example.recutp3.fragments.FavoriteListFragment"
+        android:label="fragment_favorite_list"
+        tools:layout="@layout/fragment_favorite_list" />
 </navigation>

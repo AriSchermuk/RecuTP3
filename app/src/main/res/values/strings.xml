@@ -3,7 +3,7 @@
     <string name="login_title">Login</string>
     <string name="user_list_title">User List</string>
     <string name="user_detail_title">User Detail</string>
-    <string name="favourite_list_title">Favourites</string>
+    <string name="favorite_list_title">Favorites</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="login_submit">Log In</string>
@@ -12,6 +12,6 @@
     <string name="userDetail_button">See Detail</string>
     <string name="userDetail_description">You are seeing the details of the user with ID: %s</string>
     <string name="home_menu_option">Home</string>
-    <string name="favourites_menu_option">Favourites</string>
+    <string name="favorites_menu_option">Favorites</string>
     <string name="exit_menu_option">Exit</string>
 </resources>
