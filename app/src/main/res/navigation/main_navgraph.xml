@@ -30,7 +30,11 @@
         android:id="@+id/userDetailFragment"
         android:name="com.example.recutp3.fragments.UserDetailFragment"
         android:label="fragment_user_detail"
-        tools:layout="@layout/fragment_user_detail" />
+        tools:layout="@layout/fragment_user_detail" >
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/favouriteListFragment"
         android:name="com.example.recutp3.fragments.FavouriteListFragment"

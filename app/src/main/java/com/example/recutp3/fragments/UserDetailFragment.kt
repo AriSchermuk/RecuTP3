@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import com.example.recutp3.R
 
 class UserDetailFragment : Fragment() {
+    lateinit var view1: View
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_detail, container, false)
+        view1 = inflater.inflate(R.layout.fragment_user_detail, container, false)
+        return view1
     }
 }
