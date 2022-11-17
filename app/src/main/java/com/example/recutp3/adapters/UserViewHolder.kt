@@ -8,7 +8,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.recutp3.R
-import com.example.recutp3.entities.User
 import com.example.recutp3.fragments.UserListFragmentDirections
 import com.example.recutp3.models.UserModel
 import java.util.*
@@ -33,7 +32,7 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         userDetailsButton.setOnClickListener {
             val action =
-                UserListFragmentDirections.actionUserListFragmentToUserDetailFragment(User(user.userId))
+                UserListFragmentDirections.actionUserListFragmentToUserDetailFragment(user.userId)
             itemView.findNavController().navigate(action)
         }
     }

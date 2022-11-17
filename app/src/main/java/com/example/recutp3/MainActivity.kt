@@ -2,6 +2,7 @@ package com.example.recutp3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
@@ -19,6 +20,12 @@ class MainActivity : AppCompatActivity() {
         val mainNavHost =
             supportFragmentManager.findFragmentById(R.id.main_navhost) as NavHostFragment
         val navController = mainNavHost.navController
-        findViewById<BottomNavigationView>(R.id.bottom_navbar).setupWithNavController(navController)
+        val bottomNavbar = findViewById<BottomNavigationView>(R.id.bottom_navbar)
+        bottomNavbar.setupWithNavController(navController)
+
+        mainNavHost.navController.addOnDestinationChangedListener { _, destination, _ ->
+            bottomNavbar.visibility =
+                if (destination.id == R.id.loginFragment) View.GONE else View.VISIBLE
+        }
     }
 }

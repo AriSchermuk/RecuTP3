@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navgraph"
-    app:startDestination="@id/userListFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -29,8 +29,8 @@
         android:label="fragment_user_detail"
         tools:layout="@layout/fragment_user_detail" >
         <argument
-            android:name="user"
-            app:argType="com.example.recutp3.entities.User" />
+            android:name="userId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/favoriteListFragment"
