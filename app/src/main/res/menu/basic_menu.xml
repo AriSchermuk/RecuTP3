@@ -7,9 +7,9 @@
         android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/home_menu_option" />
     <item
-        android:id="@+id/favouriteListFragment"
+        android:id="@+id/favoriteListFragment"
         android:icon="@drawable/ic_baseline_star_24"
-        android:title="@string/favourites_menu_option" />
+        android:title="@string/favorites_menu_option" />
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_baseline_logout_24"

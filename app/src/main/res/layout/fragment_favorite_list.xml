@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FavouriteListFragment">
+    tools:context=".fragments.FavoriteListFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/favourite_list_title" />
+        android:text="@string/favorite_list_title" />
 
 </FrameLayout>
