@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.recutp3.R
 import com.example.recutp3.entities.User
 import com.example.recutp3.fragments.UserListFragmentDirections
@@ -20,9 +21,16 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val userDetailsButton: Button = itemView.findViewById(R.id.btnUserDetail)
 
     fun bind(user: UserModel) {
+        Glide.with(itemView)
+            .load(user.profilePicture)
+            .into(pictureView)
+
         nameLabel.text = user.name
+
         nationalityLabel.text = user.nationality.withFlagEmoji()
+
         genderLabel.text = user.gender.withGenderEmoji()
+
         userDetailsButton.setOnClickListener {
             val action =
                 UserListFragmentDirections.actionUserListFragmentToUserDetailFragment(User(user.userId))
