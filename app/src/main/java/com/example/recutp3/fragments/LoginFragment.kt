@@ -44,6 +44,12 @@ class LoginFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        //Cuando vuelvo a login automaticamente cuanto como deslogueado
+        LoggedUserSession.loggedUser = null
+    }
+
     private fun getLoggedUser(): LoggedUser? {
         return if (!txtLoginEmail.text.isNullOrEmpty() && !txtLoginPassword.text.isNullOrEmpty()) LoggedUser(
             "1", txtLoginEmail.text.toString()
