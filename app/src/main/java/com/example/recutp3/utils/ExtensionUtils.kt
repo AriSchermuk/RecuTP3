@@ -12,12 +12,16 @@ fun ImageView.show(view: View, url: String) {
 
 fun String.withFlagEmoji(): String {
     // 1. It first checks if the string consists of only 2 characters: ISO 3166-1 alpha-2 two-letter country codes (https://en.wikipedia.org/wiki/Regional_Indicator_Symbol).
-    if (this.length != 2) {
+    val countryCode = if (this.length == 2) this else Locale.getISOCountries().find {
+        Locale("EN", it).displayCountry == this;
+    }
+
+    if (countryCode?.length != 2) {
         return this
     }
 
     val countryCodeCaps =
-        this.uppercase(Locale.ROOT) // upper case is important because we are calculating offset
+        countryCode.uppercase(Locale.ROOT) // upper case is important because we are calculating offset
     val firstLetter = Character.codePointAt(countryCodeCaps, 0) - 0x41 + 0x1F1E6
     val secondLetter = Character.codePointAt(countryCodeCaps, 1) - 0x41 + 0x1F1E6
 
