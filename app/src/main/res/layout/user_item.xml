@@ -1,60 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="150dp">
+    android:layout_height="150dp"
+    android:clickable="true"
+    android:elevation="8dp"
+    app:cardCornerRadius="5dp">
 
-    <ImageView
-        android:id="@+id/imgUserItemPicture"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/lblUserItemName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:textSize="15dp"
-        android:text="Nombre"
-        app:layout_constraintStart_toEndOf="@id/imgUserItemPicture"
-        app:layout_constraintTop_toTopOf="@id/imgUserItemPicture" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/lblUserItemNationality"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="Nacionalidad"
-        android:textSize="13dp"
-        app:layout_constraintStart_toEndOf="@id/imgUserItemPicture"
-        app:layout_constraintTop_toBottomOf="@id/lblUserItemName"
-        app:layout_constraintVertical_bias="0.133" />
+        <ImageView
+            android:id="@+id/imgUserItemPicture"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/lblUserItemGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Genero"
-        android:textSize="11dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@id/imgUserItemPicture"
-        app:layout_constraintTop_toBottomOf="@id/lblUserItemNationality"
-        app:layout_constraintVertical_bias="0.133" />
+        <TextView
+            android:id="@+id/lblUserItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Nombre"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgUserItemPicture"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnUserDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/userDetail_button"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:id="@+id/lblUserItemNationality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nacionalidad"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toTopOf="@id/lblUserItemGender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/lblUserItemName"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/lblUserItemGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Genero"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/lblUserItemName"
+            app:layout_constraintTop_toBottomOf="@id/lblUserItemNationality" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

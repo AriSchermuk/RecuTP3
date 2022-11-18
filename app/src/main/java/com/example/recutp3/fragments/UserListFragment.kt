@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recutp3.R
@@ -27,6 +28,12 @@ class UserListFragment : Fragment() {
         recyclerView = view1.findViewById(R.id.reciclerViewUserList)
         recyclerView.adapter = UserAdapter(users)
         recyclerView.layoutManager = LinearLayoutManager(parentFragment?.context)
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                parentFragment?.context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         return view1
     }

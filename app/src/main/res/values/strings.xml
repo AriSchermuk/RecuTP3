@@ -15,4 +15,6 @@
     <string name="favorites_menu_option">Favorites</string>
     <string name="exit_menu_option">Exit</string>
     <string name="login_register">Register</string>
+    <string name="user_detail_from">From: %s</string>
+    <string name="user_detail_gender">Gender: %s</string>
 </resources>
