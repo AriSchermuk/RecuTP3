@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.recutp3.R
+import com.example.recutp3.utils.show
 import com.example.recutp3.utils.withFlagEmoji
 import com.example.recutp3.utils.withGenderEmoji
 
@@ -41,8 +42,8 @@ class UserDetailFragment : Fragment() {
         super.onStart()
         val user = UserDetailFragmentArgs.fromBundle(requireArguments()).user
         nameLabel.text = user.name
-        fromLabel.text = getString(R.string.user_detail_from, user.nationality?.withFlagEmoji())
-        genderLabel.text = getString(R.string.user_detail_gender, user.gender?.withGenderEmoji())
-        Glide.with(view1).load(user.profilePicture).into(pictureView)
+        fromLabel.text = getString(R.string.user_detail_from, user.nationality.withFlagEmoji())
+        genderLabel.text = getString(R.string.user_detail_gender, user.gender.withGenderEmoji())
+        pictureView.show(view1, user.profilePicture)
     }
 }

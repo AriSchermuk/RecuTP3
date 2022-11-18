@@ -1,7 +1,14 @@
 package com.example.recutp3.utils
 
+import android.view.View
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import java.util.*
 
+
+fun ImageView.show(view: View, url: String) {
+    Glide.with(view).load(url).into(this)
+}
 
 fun String.withFlagEmoji(): String {
     // 1. It first checks if the string consists of only 2 characters: ISO 3166-1 alpha-2 two-letter country codes (https://en.wikipedia.org/wiki/Regional_Indicator_Symbol).

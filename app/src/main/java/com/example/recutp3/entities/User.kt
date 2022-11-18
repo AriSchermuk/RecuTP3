@@ -4,18 +4,18 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class User(
-    val userId: String?,
-    val name: String?,
-    val profilePicture: String?,
-    val nationality: String?,
-    val gender: String?
+    val userId: String,
+    val name: String,
+    val profilePicture: String,
+    val nationality: String,
+    val gender: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString()
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
