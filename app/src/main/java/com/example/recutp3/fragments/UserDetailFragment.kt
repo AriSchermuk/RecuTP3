@@ -41,9 +41,10 @@ class UserDetailFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         val user = UserDetailFragmentArgs.fromBundle(requireArguments()).user
-        nameLabel.text = user.name
-        fromLabel.text = getString(R.string.user_detail_from, user.nationality.withFlagEmoji())
+        val name = user.name
+        nameLabel.text = getString(R.string.full_name, name.first, name.last)
+        fromLabel.text = getString(R.string.user_detail_from, user.location.country.withFlagEmoji())
         genderLabel.text = getString(R.string.user_detail_gender, user.gender.withGenderEmoji())
-        pictureView.show(view1, user.profilePicture)
+        pictureView.show(view1, user.picture.large)
     }
 }

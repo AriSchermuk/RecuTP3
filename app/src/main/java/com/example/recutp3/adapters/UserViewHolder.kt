@@ -1,19 +1,16 @@
 package com.example.recutp3.adapters
 
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.recutp3.R
 import com.example.recutp3.fragments.UserListFragmentDirections
-import com.example.recutp3.entities.User
+import com.example.recutp3.models.User
 import com.example.recutp3.utils.show
 import com.example.recutp3.utils.withFlagEmoji
 import com.example.recutp3.utils.withGenderEmoji
-import java.util.*
 
 class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val nameLabel: TextView = itemView.findViewById(R.id.lblUserItemName)
@@ -22,10 +19,11 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val pictureView: ImageView = itemView.findViewById(R.id.imgUserItemPicture)
 
     fun bind(user: User) {
-        nameLabel.text = user.name
-        nationalityLabel.text = user.nationality.withFlagEmoji()
+        val name = user.name
+        nameLabel.text = itemView.resources.getString(R.string.full_name, name.first, name.last)
+        nationalityLabel.text = user.location.country.withFlagEmoji()
         genderLabel.text = user.gender.withGenderEmoji()
-        pictureView.show(itemView, user.profilePicture)
+        pictureView.show(itemView, user.picture.medium)
         itemView.setOnClickListener {
             val action =
                 UserListFragmentDirections.actionUserListFragmentToUserDetailFragment(user)

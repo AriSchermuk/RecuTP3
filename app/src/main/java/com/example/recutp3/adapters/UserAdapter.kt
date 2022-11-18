@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recutp3.R
-import com.example.recutp3.entities.User
+import com.example.recutp3.models.User
 
 class UserAdapter(private val users: List<User>) : RecyclerView.Adapter<UserViewHolder>() {
 
