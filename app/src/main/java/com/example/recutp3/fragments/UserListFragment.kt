@@ -36,7 +36,7 @@ class UserListFragment : Fragment() {
 
     private fun loadUsers() {
         val service = UserServiceApiBuilder.create()
-        service.getUsersSeeded(20,"seed").enqueue(object : Callback<UserResults> {
+        service.getUsersSeeded(20, "seed").enqueue(object : Callback<UserResults> {
             override fun onResponse(call: Call<UserResults>, response: Response<UserResults>) {
                 if (response.isSuccessful) {
                     val userResults = response.body()
