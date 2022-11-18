@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.recutp3.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_userListFragment"
             app:destination="@id/userListFragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/userListFragment"
         android:name="com.example.recutp3.fragments.UserListFragment"
         android:label="fragment_user_list"
-        tools:layout="@layout/fragment_user_list" >
+        tools:layout="@layout/fragment_user_list">
         <action
             android:id="@+id/action_userListFragment_to_userDetailFragment"
             app:destination="@id/userDetailFragment" />
@@ -27,7 +27,7 @@
         android:id="@+id/userDetailFragment"
         android:name="com.example.recutp3.fragments.UserDetailFragment"
         android:label="fragment_user_detail"
-        tools:layout="@layout/fragment_user_detail" >
+        tools:layout="@layout/fragment_user_detail">
         <argument
             android:name="user"
             app:argType="com.example.recutp3.models.User" />
