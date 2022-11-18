@@ -6,32 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".fragments.UserDetailFragment">
 
-    <TextView
-        android:id="@+id/lblUserDetailTitle"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imgUserDetailProfilePicture"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/user_detail_title"
-        android:textSize="30dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgUserDetailProfilePicture"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="@id/lblUserDetailTitle"
-        app:layout_constraintStart_toStartOf="@id/lblUserDetailTitle"
-        app:layout_constraintTop_toBottomOf="@id/lblUserDetailTitle" />
 
     <TextView
         android:id="@+id/lblUserDetailName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/imgUserDetailProfilePicture"
         app:layout_constraintStart_toStartOf="@+id/imgUserDetailProfilePicture"
         app:layout_constraintTop_toBottomOf="@+id/imgUserDetailProfilePicture" />
@@ -42,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="10dp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@id/lblUserDetailGender"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lblUserDetailName" />
@@ -52,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="35dp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/lblUserDetailFrom"
         app:layout_constraintTop_toBottomOf="@id/lblUserDetailName" />
