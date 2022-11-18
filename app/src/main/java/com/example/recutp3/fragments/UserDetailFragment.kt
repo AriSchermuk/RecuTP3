@@ -43,7 +43,8 @@ class UserDetailFragment : Fragment() {
         val user = UserDetailFragmentArgs.fromBundle(requireArguments()).user
         val name = user.name
         nameLabel.text = getString(R.string.full_name, name.first, name.last)
-        fromLabel.text = getString(R.string.user_detail_from, user.location.country.withFlagEmoji())
+        val location = user.location
+        fromLabel.text = getString(R.string.user_detail_from, location.country.withFlagEmoji(),location.state,location.city)
         genderLabel.text = getString(R.string.user_detail_gender, user.gender.withGenderEmoji())
         pictureView.show(view1, user.picture.large)
     }
