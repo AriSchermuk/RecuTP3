@@ -1,28 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.UserDetailFragment">
 
     <TextView
         android:id="@+id/lblUserDetailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/user_detail_title"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imgUserDetailProfilePicture"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@id/lblUserDetailTitle"
+        app:layout_constraintStart_toStartOf="@id/lblUserDetailTitle"
+        app:layout_constraintTop_toBottomOf="@id/lblUserDetailTitle" />
+
     <TextView
-        android:id="@+id/lblUserDetailDescription"
+        android:id="@+id/lblUserDetailName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        app:layout_constraintEnd_toEndOf="@+id/lblUserDetailTitle"
-        app:layout_constraintStart_toStartOf="@+id/lblUserDetailTitle"
-        app:layout_constraintTop_toBottomOf="@+id/lblUserDetailTitle" />
+        android:layout_marginTop="15dp"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgUserDetailProfilePicture"
+        app:layout_constraintStart_toStartOf="@+id/imgUserDetailProfilePicture"
+        app:layout_constraintTop_toBottomOf="@+id/imgUserDetailProfilePicture" />
 
+    <TextView
+        android:id="@+id/lblUserDetailFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@id/lblUserDetailGender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblUserDetailName" />
+
+    <TextView
+        android:id="@+id/lblUserDetailGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lblUserDetailFrom"
+        app:layout_constraintTop_toBottomOf="@id/lblUserDetailName" />
+
+    <Button
+        android:id="@+id/btnUserDetailFavorite"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/oval_shape"
+        android:button="@drawable/ic_baseline_star_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

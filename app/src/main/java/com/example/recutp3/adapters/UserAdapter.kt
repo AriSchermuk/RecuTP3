@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recutp3.R
-import com.example.recutp3.models.UserModel
+import com.example.recutp3.entities.User
 
-class UserAdapter(private val users: List<UserModel>) : RecyclerView.Adapter<UserViewHolder>() {
+class UserAdapter(private val users: List<User>) : RecyclerView.Adapter<UserViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
