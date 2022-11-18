@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recutp3.R
 import com.example.recutp3.adapters.UserAdapter
+import com.example.recutp3.entities.User
 import com.example.recutp3.mocks.UserMock
 
 class UserListFragment : Fragment() {
@@ -25,7 +26,13 @@ class UserListFragment : Fragment() {
 
         val users = UserMock().userMock()
 
-        recyclerView = view1.findViewById(R.id.reciclerViewUserList)
+        setupRecyclerView(users)
+
+        return view1
+    }
+
+    private fun setupRecyclerView(users: List<User>) {
+        recyclerView = view1.findViewById(R.id.recyclerViewUserList)
         recyclerView.adapter = UserAdapter(users)
         recyclerView.layoutManager = LinearLayoutManager(parentFragment?.context)
         recyclerView.addItemDecoration(
@@ -34,7 +41,5 @@ class UserListFragment : Fragment() {
                 DividerItemDecoration.VERTICAL
             )
         )
-
-        return view1
     }
 }
