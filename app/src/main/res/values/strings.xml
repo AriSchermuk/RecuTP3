@@ -17,4 +17,5 @@
     <string name="login_register">Register</string>
     <string name="user_detail_from">From: %s</string>
     <string name="user_detail_gender">Gender: %s</string>
+    <string name="full_name">%s %s</string>
 </resources>

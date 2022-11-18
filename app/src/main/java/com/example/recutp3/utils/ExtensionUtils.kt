@@ -32,8 +32,8 @@ fun String.withFlagEmoji(): String {
 }
 
 fun String.withGenderEmoji(): String {
-    if ("Male".equals(this)) return "$this \u2642\uFE0F"
-    if ("Female".equals(this)) return "$this \u2640️️️️\uFE0F"
+    if ("MALE" == this.uppercase()) return "$this \u2642\uFE0F"
+    if ("FEMALE" == this.uppercase()) return "$this \u2640️️️️\uFE0F"
     return this
 }
 
