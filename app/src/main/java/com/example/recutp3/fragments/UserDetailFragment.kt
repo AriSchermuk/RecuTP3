@@ -10,16 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.recutp3.R
-import com.example.recutp3.database.entities.Favorite
-import com.example.recutp3.database.repository.FavoriteRepository
-import com.example.recutp3.session.LoggedUserSession
 import com.example.recutp3.utils.show
 import com.example.recutp3.utils.withFlagEmoji
 import com.example.recutp3.utils.withGenderEmoji
 
 class UserDetailFragment : Fragment() {
-
-    lateinit var favoriteRepository: FavoriteRepository
     lateinit var view1: View
     lateinit var nameLabel: TextView
     lateinit var fromLabel: TextView
@@ -32,8 +27,6 @@ class UserDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        context?.let { favoriteRepository = FavoriteRepository.getInstance(it) }
-
         view1 = inflater.inflate(R.layout.fragment_user_detail, container, false)
 
         nameLabel = view1.findViewById(R.id.lblUserDetailName)
@@ -51,22 +44,8 @@ class UserDetailFragment : Fragment() {
         val name = user.name
         nameLabel.text = getString(R.string.full_name, name.first, name.last)
         val location = user.location
-        fromLabel.text = getString(
-            R.string.user_detail_from,
-            location.country.withFlagEmoji(),
-            location.state,
-            location.city
-        )
+        fromLabel.text = getString(R.string.user_detail_from, location.country.withFlagEmoji(),location.state,location.city)
         genderLabel.text = getString(R.string.user_detail_gender, user.gender.withGenderEmoji())
         pictureView.show(view1, user.picture.large)
-        favoriteButton.setOnClickListener {
-            favoriteRepository.add(
-                Favorite(
-                    0,
-                    LoggedUserSession.loggedUser?.id.toString(),
-                    user.index
-                )
-            )
-        }
     }
 }
