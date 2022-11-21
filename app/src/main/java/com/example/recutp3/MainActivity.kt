@@ -27,5 +27,22 @@ class MainActivity : AppCompatActivity() {
             bottomNavbar.visibility =
                 if (destination.id == R.id.loginFragment) View.GONE else View.VISIBLE
         }
+        bottomNavbar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu_item_user_list -> {
+                    navController.navigate(R.id.userListFragment)
+                    true
+                }
+                R.id.menu_item_favorite_list -> {
+                    navController.navigate(R.id.favoriteListFragment)
+                    true
+                }
+                R.id.menu_item_logout -> {
+                    navController.navigate(R.id.loginFragment)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
