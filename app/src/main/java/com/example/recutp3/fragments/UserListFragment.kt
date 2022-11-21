@@ -29,6 +29,7 @@ class UserListFragment : Fragment() {
         // Inflate the layout for this fragment
         view1 = inflater.inflate(R.layout.fragment_user_list, container, false)
 
+        recyclerView = view1.findViewById(R.id.recyclerViewUserList)
         loadUsers()
 
         return view1
@@ -36,7 +37,7 @@ class UserListFragment : Fragment() {
 
     private fun loadUsers() {
         val service = UserServiceApiBuilder.create()
-        service.getUsersSeeded(20,"seed").enqueue(object : Callback<UserResults> {
+        service.getUsersSeeded(20, "seed").enqueue(object : Callback<UserResults> {
             override fun onResponse(call: Call<UserResults>, response: Response<UserResults>) {
                 if (response.isSuccessful) {
                     val userResults = response.body()
@@ -51,7 +52,7 @@ class UserListFragment : Fragment() {
     }
 
     private fun setupRecyclerView(users: List<User>) {
-        recyclerView = view1.findViewById(R.id.recyclerViewUserList)
+        setIndexes(users)
         recyclerView.adapter = UserAdapter(users)
         recyclerView.layoutManager = LinearLayoutManager(parentFragment?.context)
         recyclerView.addItemDecoration(
@@ -60,5 +61,11 @@ class UserListFragment : Fragment() {
                 DividerItemDecoration.VERTICAL
             )
         )
+    }
+
+    private fun setIndexes(users: List<User>) {
+        users.forEachIndexed { i, u ->
+            run { u.index = i }
+        }
     }
 }
