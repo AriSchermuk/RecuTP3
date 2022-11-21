@@ -52,7 +52,7 @@ class LoginFragment : Fragment() {
 
     private fun getLoggedUser(): LoggedUser? {
         return if (!txtLoginEmail.text.isNullOrEmpty() && !txtLoginPassword.text.isNullOrEmpty()) LoggedUser(
-            "1", txtLoginEmail.text.toString()
+            txtLoginEmail.text.toString(), txtLoginEmail.text.toString()
         ) else null
     }
 }

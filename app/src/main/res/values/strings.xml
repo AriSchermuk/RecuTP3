@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RecuTP3</string>
     <string name="login_title">User App</string>
-    <string name="favorite_list_title">Favorites</string>
+    <string name="favorite_list_title">Hola %s. Tienes %d favoritos.</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="login_submit">Log In</string>
