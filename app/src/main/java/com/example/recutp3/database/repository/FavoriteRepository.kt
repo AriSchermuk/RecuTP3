@@ -25,6 +25,10 @@ class FavoriteRepository private constructor(private val appDatabase: AppDatabas
         return dao.getFavoriteIndexes(userId)
     }
 
+    fun exists(userId: String, index: Int): Boolean {
+        return dao.exists(userId, index)
+    }
+
     companion object {
         private var favoriteRepository: FavoriteRepository? = null
 
@@ -35,6 +39,7 @@ class FavoriteRepository private constructor(private val appDatabase: AppDatabas
                     context.applicationContext,
                     AppDatabase::class.java, "db"
                 )
+                    .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
                     .build()
 

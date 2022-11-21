@@ -19,4 +19,7 @@ interface FavoriteDao {
 
     @Query("SELECT f.favorite_i FROM favorite f where f.user_id=:userId")
     fun getFavoriteIndexes(userId: String): List<Int>
+
+    @Query("SELECT COUNT(0)>0 FROM favorite f where f.user_id=:userId and f.favorite_i=:index")
+    fun exists(userId: String, index: Int): Boolean
 }
