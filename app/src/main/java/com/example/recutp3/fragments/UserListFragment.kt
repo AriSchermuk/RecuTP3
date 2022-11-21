@@ -30,9 +30,13 @@ class UserListFragment : Fragment() {
         view1 = inflater.inflate(R.layout.fragment_user_list, container, false)
 
         recyclerView = view1.findViewById(R.id.recyclerViewUserList)
-        loadUsers()
 
         return view1
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadUsers()
     }
 
     private fun loadUsers() {

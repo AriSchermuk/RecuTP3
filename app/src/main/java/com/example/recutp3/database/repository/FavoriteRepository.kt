@@ -13,14 +13,6 @@ class FavoriteRepository private constructor(private val appDatabase: AppDatabas
         dao.insert(favorite)
     }
 
-    fun delete(favorite: Favorite) {
-        dao.delete(favorite)
-    }
-
-    fun getAll(): List<Favorite> {
-        return dao.getAll()
-    }
-
     fun getFavoriteIndexes(userId: String): List<Int> {
         return dao.getFavoriteIndexes(userId)
     }
