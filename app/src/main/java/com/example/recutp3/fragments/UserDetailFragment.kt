@@ -1,5 +1,6 @@
 package com.example.recutp3.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.example.recutp3.session.LoggedUserSession
 import com.example.recutp3.utils.show
 import com.example.recutp3.utils.withFlagEmoji
 import com.example.recutp3.utils.withGenderEmoji
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class UserDetailFragment : Fragment() {
 
@@ -25,7 +27,7 @@ class UserDetailFragment : Fragment() {
     lateinit var fromLabel: TextView
     lateinit var genderLabel: TextView
     lateinit var pictureView: ImageView
-    lateinit var favoriteButton: Button
+    lateinit var favoriteButton: FloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,7 +61,13 @@ class UserDetailFragment : Fragment() {
         )
         genderLabel.text = getString(R.string.user_detail_gender, user.gender.withGenderEmoji())
         pictureView.show(view1, user.picture.large)
+        if (favoriteRepository.exists(
+                LoggedUserSession.loggedUser?.id ?: "0",
+                user.index
+            )
+        ) disableButton()
         favoriteButton.setOnClickListener {
+            disableButton()
             favoriteRepository.add(
                 Favorite(
                     0,
@@ -68,5 +76,11 @@ class UserDetailFragment : Fragment() {
                 )
             )
         }
+    }
+
+    private fun disableButton() {
+        favoriteButton.isEnabled = false
+        favoriteButton.isClickable = false
+        favoriteButton.alpha = 0.5f
     }
 }
