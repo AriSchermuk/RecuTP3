@@ -21,6 +21,10 @@ class FavoriteRepository private constructor(private val appDatabase: AppDatabas
         return dao.getAll()
     }
 
+    fun getFavoriteIndexes(userId: String): List<Int> {
+        return dao.getFavoriteIndexes(userId)
+    }
+
     companion object {
         private var favoriteRepository: FavoriteRepository? = null
 

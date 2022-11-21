@@ -16,4 +16,7 @@ interface FavoriteDao {
 
     @Query("SELECT *  FROM favorite")
     fun getAll(): List<Favorite>
+
+    @Query("SELECT f.favorite_i FROM favorite f where f.user_id=:userId")
+    fun getFavoriteIndexes(userId: String): List<Int>
 }
