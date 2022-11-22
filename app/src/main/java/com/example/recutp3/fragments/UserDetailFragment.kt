@@ -61,8 +61,9 @@ class UserDetailFragment : Fragment() {
         )
         genderLabel.text = getString(R.string.user_detail_gender, user.gender.withGenderEmoji())
         pictureView.show(view1, user.picture.large)
+        val loggedUserId = LoggedUserSession.loggedUser?.id ?: 0
         if (favoriteRepository.exists(
-                LoggedUserSession.loggedUser?.id ?: "0",
+                loggedUserId,
                 user.index
             )
         ) disableButton()
@@ -71,7 +72,7 @@ class UserDetailFragment : Fragment() {
             favoriteRepository.add(
                 Favorite(
                     0,
-                    LoggedUserSession.loggedUser?.id.toString(),
+                    loggedUserId,
                     user.index
                 )
             )

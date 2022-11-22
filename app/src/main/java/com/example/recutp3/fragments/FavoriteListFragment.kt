@@ -66,7 +66,7 @@ class FavoriteListFragment : Fragment() {
     private fun setupRecyclerView(users: List<User>) {
         val loggedUser = LoggedUserSession.loggedUser
         val favoriteIndexes =
-            favoriteRepository.getFavoriteIndexes(loggedUser?.id ?: "0")
+            favoriteRepository.getFavoriteIndexes(loggedUser?.id ?: 0)
         val filteredUsers = users.filterIndexed { i, _ -> favoriteIndexes.contains(i) }
         loggedUser?.email?.let {
             title.text =
