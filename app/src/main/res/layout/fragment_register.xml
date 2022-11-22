@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.LoginFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -15,17 +13,17 @@
         app:layout_constraintGuide_percent="0.1" />
 
     <TextView
-        android:id="@+id/lblLoginTitle"
+        android:id="@+id/lblRegisterTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login_title"
+        android:text="@string/register_title"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <EditText
-        android:id="@+id/txtLoginEmail"
+        android:id="@+id/txtRegisterEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -35,12 +33,13 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:paddingStart="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/lblLoginTitle"
-        app:layout_constraintStart_toStartOf="@+id/lblLoginTitle"
-        app:layout_constraintTop_toBottomOf="@+id/lblLoginTitle" />
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/lblRegisterTitle"
+        app:layout_constraintStart_toStartOf="@+id/lblRegisterTitle"
+        app:layout_constraintTop_toBottomOf="@+id/lblRegisterTitle" />
 
     <EditText
-        android:id="@+id/txtLoginPassword"
+        android:id="@+id/txtRegisterPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -50,38 +49,29 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:paddingStart="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/txtLoginEmail"
-        app:layout_constraintStart_toStartOf="@+id/txtLoginEmail"
-        app:layout_constraintTop_toBottomOf="@+id/txtLoginEmail" />
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtRegisterEmail"
+        app:layout_constraintStart_toStartOf="@+id/txtRegisterEmail"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterEmail" />
 
     <Button
-        android:id="@+id/btnLoginSubmit"
+        android:id="@+id/btnRegisterSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="@string/login_submit"
-        app:layout_constraintEnd_toEndOf="@+id/txtLoginPassword"
-        app:layout_constraintStart_toStartOf="@+id/txtLoginPassword"
-        app:layout_constraintTop_toBottomOf="@+id/txtLoginPassword" />
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="@string/login_register"
-        app:layout_constraintEnd_toEndOf="@id/btnLoginSubmit"
-        app:layout_constraintStart_toStartOf="@id/btnLoginSubmit"
-        app:layout_constraintTop_toBottomOf="@id/btnLoginSubmit" />
+        android:text="@string/register_title"
+        app:layout_constraintEnd_toEndOf="@+id/txtRegisterPassword"
+        app:layout_constraintStart_toStartOf="@+id/txtRegisterPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterPassword" />
 
     <TextView
-        android:id="@+id/lblLoginError"
+        android:id="@+id/lblRegisterError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:textAlignment="center"
         android:textColor="@color/red"
-        app:layout_constraintEnd_toEndOf="@id/btnRegister"
-        app:layout_constraintStart_toStartOf="@id/btnRegister"
-        app:layout_constraintTop_toBottomOf="@id/btnRegister" />
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/btnRegisterSubmit"
+        app:layout_constraintStart_toStartOf="@id/btnRegisterSubmit"
+        app:layout_constraintTop_toBottomOf="@id/btnRegisterSubmit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

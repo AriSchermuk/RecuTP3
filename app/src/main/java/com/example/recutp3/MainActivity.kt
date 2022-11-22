@@ -23,9 +23,13 @@ class MainActivity : AppCompatActivity() {
         val bottomNavbar = findViewById<BottomNavigationView>(R.id.bottom_navbar)
         bottomNavbar.setupWithNavController(navController)
 
-        mainNavHost.navController.addOnDestinationChangedListener { _, destination, _ ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val excludedFragments = listOf(
+                R.id.loginFragment,
+                R.id.registerFragment
+            )
             bottomNavbar.visibility =
-                if (destination.id == R.id.loginFragment) View.GONE else View.VISIBLE
+                if (excludedFragments.contains(destination.id)) View.GONE else View.VISIBLE
         }
         bottomNavbar.setOnItemSelectedListener { item ->
             when (item.itemId) {

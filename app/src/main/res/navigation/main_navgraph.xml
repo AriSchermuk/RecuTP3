@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_userListFragment"
             app:destination="@id/userListFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/userListFragment"
@@ -37,4 +40,14 @@
         android:name="com.example.recutp3.fragments.FavoriteListFragment"
         android:label="fragment_favorite_list"
         tools:layout="@layout/fragment_favorite_list" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.recutp3.fragments.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 </navigation>

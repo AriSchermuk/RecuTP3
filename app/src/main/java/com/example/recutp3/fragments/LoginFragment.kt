@@ -7,8 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.navigation.findNavController
 import com.example.recutp3.R
+import com.example.recutp3.database.entities.AppUser
+import com.example.recutp3.database.repository.AppUserRepository
+import com.example.recutp3.database.repository.FavoriteRepository
 import com.example.recutp3.session.LoggedUser
 import com.example.recutp3.session.LoggedUserSession
 
@@ -17,6 +21,9 @@ class LoginFragment : Fragment() {
     lateinit var txtLoginEmail: EditText
     lateinit var txtLoginPassword: EditText
     lateinit var btnLoginSubmit: Button
+    lateinit var btnLoginRegister: Button
+    lateinit var lblLoginError: TextView
+    lateinit var appUserRepository: AppUserRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -27,6 +34,9 @@ class LoginFragment : Fragment() {
         txtLoginEmail = view1.findViewById(R.id.txtLoginEmail)
         txtLoginPassword = view1.findViewById(R.id.txtLoginPassword)
         btnLoginSubmit = view1.findViewById(R.id.btnLoginSubmit)
+        btnLoginRegister = view1.findViewById(R.id.btnRegister)
+        lblLoginError = view1.findViewById(R.id.lblLoginError)
+        context?.let { appUserRepository = AppUserRepository.getInstance(it) }
 
         return view1
     }
@@ -40,7 +50,14 @@ class LoginFragment : Fragment() {
                 LoggedUserSession.loggedUser = loggedUser
                 val action = LoginFragmentDirections.actionLoginFragmentToUserListFragment()
                 view1.findNavController().navigate(action)
+                lblLoginError.text = ""
+            } else {
+                lblLoginError.text = getString(R.string.user_not_found)
             }
+        }
+        btnLoginRegister.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+            view1.findNavController().navigate(action)
         }
     }
 
@@ -50,9 +67,10 @@ class LoginFragment : Fragment() {
         LoggedUserSession.loggedUser = null
     }
 
-    private fun getLoggedUser(): LoggedUser? {
-        return if (!txtLoginEmail.text.isNullOrEmpty() && !txtLoginPassword.text.isNullOrEmpty()) LoggedUser(
-            txtLoginEmail.text.toString(), txtLoginEmail.text.toString()
-        ) else null
+    private fun getLoggedUser(): AppUser? {
+        return appUserRepository.get(
+            txtLoginEmail.text.toString(),
+            txtLoginPassword.text.toString()
+        )
     }
 }

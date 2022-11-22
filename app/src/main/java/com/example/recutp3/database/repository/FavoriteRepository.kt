@@ -13,12 +13,19 @@ class FavoriteRepository private constructor(private val appDatabase: AppDatabas
         dao.insert(favorite)
     }
 
-    fun getFavoriteIndexes(userId: String): List<Int> {
+    fun getFavoriteIndexes(userId: Int): List<Int> {
         return dao.getFavoriteIndexes(userId)
     }
 
-    fun exists(userId: String, index: Int): Boolean {
+    fun exists(userId: Int, index: Int): Boolean {
         return dao.exists(userId, index)
+    }
+
+    fun getAll():List<Favorite>{
+        return dao.getAll()
+    }
+    fun delete(favorite: Favorite){
+        dao.delete(favorite)
     }
 
     companion object {
