@@ -9,6 +9,7 @@ import androidx.room.PrimaryKey
 //Then index generates a unique constraint for email
 class AppUser(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo val email: String,
-    @ColumnInfo val password: String
+    val email: String,
+    val password: String,
+    var logged: Boolean
 )

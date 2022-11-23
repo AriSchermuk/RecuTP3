@@ -18,16 +18,20 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val genderLabel: TextView = itemView.findViewById(R.id.lblUserItemGender)
     private val pictureView: ImageView = itemView.findViewById(R.id.imgUserItemPicture)
 
-    fun bind(user: User) {
+    fun bind(user: User, clickable: Boolean) {
         val name = user.name
         nameLabel.text = itemView.resources.getString(R.string.full_name, name.first, name.last)
         nationalityLabel.text = user.location.country.withFlagEmoji()
         genderLabel.text = user.gender.withGenderEmoji()
         pictureView.show(itemView, user.picture.medium)
-        itemView.setOnClickListener {
-            val action =
-                UserListFragmentDirections.actionUserListFragmentToUserDetailFragment(user)
-            itemView.findNavController().navigate(action)
+        itemView.isClickable = clickable
+        if (clickable) {
+            itemView.setOnClickListener {
+                val action =
+                    UserListFragmentDirections.actionUserListFragmentToUserDetailFragment(user)
+                itemView.findNavController().navigate(action)
+
+            }
         }
     }
 }

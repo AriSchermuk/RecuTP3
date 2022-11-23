@@ -1,8 +1,5 @@
 package com.example.recutp3.models
 
-import android.os.Parcel
-import android.os.Parcelable
-
 data class User(
     val name: Name,
     val email: String,

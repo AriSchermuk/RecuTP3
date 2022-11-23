@@ -5,13 +5,21 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.recutp3.database.repository.AppUserRepository
+import com.example.recutp3.session.LoggedUser
+import com.example.recutp3.session.LoggedUserSession
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var appUserRepository: AppUserRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        applicationContext.let { appUserRepository = AppUserRepository.getInstance(it) }
 
         setupNavBar()
     }
@@ -31,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             bottomNavbar.visibility =
                 if (excludedFragments.contains(destination.id)) View.GONE else View.VISIBLE
         }
+
         bottomNavbar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_item_user_list -> {
@@ -42,6 +51,12 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menu_item_logout -> {
+                    val loggedUser = LoggedUserSession.loggedUser
+                    loggedUser?.let {
+                        it.logged = false
+                        appUserRepository.updateUser(it)
+                    }
+                    LoggedUserSession.loggedUser = null
                     navController.navigate(R.id.loginFragment)
                     true
                 }

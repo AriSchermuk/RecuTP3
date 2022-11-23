@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recutp3.R
 import com.example.recutp3.models.User
 
-class UserAdapter(private val users: List<User>) : RecyclerView.Adapter<UserViewHolder>() {
+class UserAdapter(private val users: List<User>, private val clickable: Boolean) : RecyclerView.Adapter<UserViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -15,7 +15,7 @@ class UserAdapter(private val users: List<User>) : RecyclerView.Adapter<UserView
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.bind(users[position])
+        holder.bind(users[position],clickable)
     }
 
     override fun getItemCount() = users.size

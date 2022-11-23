@@ -13,8 +13,16 @@ class AppUserRepository private constructor(private val appDatabase: AppDatabase
         dao.insert(appUser)
     }
 
-    fun get(email: String, password: String):AppUser {
+    fun get(email: String, password: String): AppUser {
         return dao.get(email, password)
+    }
+
+    fun updateUser(appUser: AppUser) {
+        return dao.updateUser(appUser)
+    }
+
+    fun findLoggedUser(): AppUser? {
+        return dao.findLoggedUser()
     }
 
     companion object {

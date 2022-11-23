@@ -47,7 +47,8 @@ class RegisterFragment : Fragment() {
                     AppUser(
                         0,
                         email,
-                        password
+                        password,
+                        false
                     )
                 )
                 lblRegisterError.text = ""

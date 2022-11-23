@@ -72,7 +72,7 @@ class FavoriteListFragment : Fragment() {
             title.text =
                 getString(R.string.favorite_list_title, it, filteredUsers.size)
         }
-        recyclerView.adapter = UserAdapter(filteredUsers)
+        recyclerView.adapter = UserAdapter(filteredUsers, false)
         recyclerView.layoutManager = LinearLayoutManager(parentFragment?.context)
         recyclerView.addItemDecoration(
             DividerItemDecoration(
