@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.recutp3.R
 import com.example.recutp3.database.entities.AppUser
 import com.example.recutp3.database.repository.AppUserRepository
@@ -44,9 +45,19 @@ class LoginFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        val previouslyLoggedUser = appUserRepository.findLoggedUser()
+        if (previouslyLoggedUser != null) {
+            LoggedUserSession.loggedUser = previouslyLoggedUser
+            val action = LoginFragmentDirections.actionLoginFragmentToUserListFragment()
+            view1.findNavController().navigate(action)
+        }
+
+
         btnLoginSubmit.setOnClickListener {
             val loggedUser = getLoggedUser()
             if (loggedUser != null) {
+                loggedUser.logged = true
+                appUserRepository.updateUser(loggedUser)
                 LoggedUserSession.loggedUser = loggedUser
                 val action = LoginFragmentDirections.actionLoginFragmentToUserListFragment()
                 view1.findNavController().navigate(action)
@@ -59,12 +70,6 @@ class LoginFragment : Fragment() {
             val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             view1.findNavController().navigate(action)
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        //Cuando vuelvo a login automaticamente cuanto como deslogueado
-        LoggedUserSession.loggedUser = null
     }
 
     private fun getLoggedUser(): AppUser? {

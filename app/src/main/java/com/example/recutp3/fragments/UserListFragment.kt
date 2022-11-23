@@ -57,7 +57,7 @@ class UserListFragment : Fragment() {
 
     private fun setupRecyclerView(users: List<User>) {
         setIndexes(users)
-        recyclerView.adapter = UserAdapter(users)
+        recyclerView.adapter = UserAdapter(users,true)
         recyclerView.layoutManager = LinearLayoutManager(parentFragment?.context)
         recyclerView.addItemDecoration(
             DividerItemDecoration(
